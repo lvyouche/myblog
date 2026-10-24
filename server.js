@@ -1,9 +1,10 @@
-const http = require('http');
-const fs = require('fs');
-const path = require('path');
+import http from 'http';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
 const PORT = 8775;
-const BASE_DIR = 'C:/Users/Lvyouche/Desktop/x tech/blog';
+const BASE_DIR = path.dirname(fileURLToPath(import.meta.url));
 
 const server = http.createServer((req, res) => {
   let filePath = path.join(BASE_DIR, req.url === '/' ? 'index.html' : req.url.split('?')[0]);
